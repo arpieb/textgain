@@ -14,7 +14,13 @@ defmodule Textgain.Mixfile do
   #
   # Type "mix help compile.app" for more information
   def application do
-    [applications: [:logger]]
+    [
+      applications: [
+        :logger,
+        :httpoison,
+        :poison,
+      ]
+    ]
   end
 
   # Dependencies can be Hex packages:
@@ -28,7 +34,7 @@ defmodule Textgain.Mixfile do
   # Type "mix help deps" for more examples and options
   defp deps do
     [
-      {:ex_doc, "~> 0.14.5"},
+      {:ex_doc, "~> 0.14.5", only: :dev},
       {:httpoison, "~> 0.10.0"},
       {:poison, "~> 3.0"},
     ]
