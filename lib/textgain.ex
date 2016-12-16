@@ -60,7 +60,7 @@ defmodule Textgain do
     end
   end
 
-  # Shorthand config retrieval functions fro Textgain API key.
+  # Shorthand config retrieval functions for Textgain API key.
   # Why not use module attributes? Some deployments require runtime retrieval, attributes are compile-time.
   defp key do
     Application.get_env(:textgain, :key, nil)
