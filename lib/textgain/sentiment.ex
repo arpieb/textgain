@@ -4,6 +4,6 @@ defmodule Textgain.Sentiment do
   Provides an interface into the Sentiment service provided by Textgain.
   """
   defstruct [:polarity, :confidence]
-  use Textgain.Service, name: "sentiment"
+  use Textgain, service: "sentiment"
 
 end

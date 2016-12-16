@@ -4,6 +4,6 @@ defmodule Textgain.Concepts do
   Provides an interface into the Concepts service provided by Textgain.
   """
   defstruct [:concepts]
-  use Textgain.Service, name: "concepts"
+  use Textgain, service: "concepts"
 
 end

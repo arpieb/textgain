@@ -4,6 +4,6 @@ defmodule Textgain.Genre do
   Provides an interface into the Genre service provided by Textgain.
   """
   defstruct [:genre, :review, :confidence]
-  use Textgain.Service, name: "genre"
+  use Textgain, service: "genre"
 
 end

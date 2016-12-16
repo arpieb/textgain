@@ -4,6 +4,6 @@ defmodule Textgain.Gender do
   Provides an interface into the Gender service provided by Textgain.
   """
   defstruct [:gender, :confidence]
-  use Textgain.Service, name: "gender"
+  use Textgain, service: "gender"
 
 end

@@ -4,6 +4,6 @@ defmodule Textgain.Language do
   Provides an interface into the Language service provided by Textgain.
   """
   defstruct [:language, :confidence]
-  use Textgain.Service, name: "language"
+  use Textgain, service: "language"
 
 end

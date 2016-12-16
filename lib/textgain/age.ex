@@ -4,6 +4,6 @@ defmodule Textgain.Age do
   Provides an interface into the Age service provided by Textgain.
   """
   defstruct [:age, :confidence]
-  use Textgain.Service, name: "age"
+  use Textgain, service: "age"
 
 end

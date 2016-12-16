@@ -4,6 +4,6 @@ defmodule Textgain.Personality do
   Provides an interface into the Personality service provided by Textgain.
   """
   defstruct [:personality, :confidence]
-  use Textgain.Service, name: "personality"
+  use Textgain, service: "personality"
 
 end

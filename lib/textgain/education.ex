@@ -4,6 +4,6 @@ defmodule Textgain.Education do
   Provides an interface into the Education service provided by Textgain.
   """
   defstruct [:education, :confidence]
-  use Textgain.Service, name: "education"
+  use Textgain, service: "education"
 
 end
