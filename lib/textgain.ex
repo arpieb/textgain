@@ -23,7 +23,9 @@ defmodule Textgain do
   """
   @spec query(service :: binary, params :: keyword(binary)) :: map
   def query(service, params) do
-    HTTPoison.get(@api_endpoint <> service, %{}, params: add_key(params, key()))
+    params_w_key = add_key(params, key())
+    Logger.debug("Executing query to service '#{@api_endpoint <> service}' with params: #{inspect_str(params_w_key)}")
+    HTTPoison.get(@api_endpoint <> service, %{}, params: params_w_key)
     |> process_response(service, params)
   end
 
@@ -54,7 +56,7 @@ defmodule Textgain do
   # Inspect item, return as a binary.
   defp inspect_str(item) do
     {:ok, str_io} = StringIO.open("")
-    IO.inspect(str_io, item, width: 0)
+    IO.inspect(str_io, item)
     {_, {_, item_str}} = StringIO.close(str_io)
     item_str
   end
