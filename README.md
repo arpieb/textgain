@@ -41,48 +41,40 @@ If [available in Hex](https://hex.pm/docs/publish), the package can be installed
 
 ## Usage
 
-The package is architected around the `Textgain` service module, which provides a raw query function as well as a macro expansion that allows for easily adding new services that themselves can have more complex processing.  Each service is wrapped in its own module:
+The package's main API module is `Textgain` which leverages the `service` macro defined in `Textgain.Service` to instantiate endpoints for each Textgain service.  All returned data is decoded into service-specific structs to facilitate leveraging Elixir's pattern matching to process responses.
 
-* Textgain.Age
-* Textgain.Concepts
-* Textgain.Education
-* Textgain.Gender
-* Textgain.Genre
-* Textgain.Language
-* Textgain.Personality
-* Textgain.Sentiment
-* Textgain.Tags
+Additionally, the `Textgain.Service` module exposes a public function `raw_query` which can be used to execute custom queries against the service if necessary.
 
-To use the modules, simply call the ```query``` function in each, with the text to be analyzed as the first argument followed by a keyword list of optional parameters, per the [API services documentation](https://www.textgain.com/api).  Valid return values are also documented on the API services page.
+To use the module, simply call the service by function name in the `Textgain` module, with the text to be analyzed as the first argument followed by a keyword list of optional parameters, per the [API services documentation](https://www.textgain.com/api).  Valid return values are also documented on the API services page.
 
 ```elixir
-iex(1)> Textgain.Age.query("The quick brown fox jumps over the lazy dog.")
+iex(1)> Textgain.age("The quick brown fox jumps over the lazy dog.", lang: "en")
 {:ok, %Textgain.Age{age: "25+", confidence: 0.75}}
 
-iex(2)> Textgain.Concepts.query("The quick brown fox jumps over the lazy dog.")
+iex(2)> Textgain.concepts("The quick brown fox jumps over the lazy dog.", lang: "en")
 {:ok, %Textgain.Concepts{concepts: ["jump", "fox", "dog"]}}
 
-iex(3)> Textgain.Education.query("The quick brown fox jumps over the lazy dog.")
+iex(3)> Textgain.education("The quick brown fox jumps over the lazy dog.", lang: "en")
 {:ok, %Textgain.Education{confidence: 0.8, education: "-"}}
 
-iex(4)> Textgain.Gender.query("The quick brown fox jumps over the lazy dog.")
+iex(4)> Textgain.gender("The quick brown fox jumps over the lazy dog.", lang: "en")
 {:ok, %Textgain.Gender{confidence: 0.75, gender: "m"}}
 
-iex(5)> Textgain.Genre.query("The quick brown fox jumps over the lazy dog.")
+iex(5)> Textgain.genre("The quick brown fox jumps over the lazy dog.", lang: "en")
 {:ok, %Textgain.Genre{confidence: 0.95, genre: "review", review: nil}}
 
-iex(6)> Textgain.Language.query("The quick brown fox jumps over the lazy dog.")
+iex(6)> Textgain.language("The quick brown fox jumps over the lazy dog.", lang: "en")
 {:ok, %Textgain.Language{confidence: 0.95, language: "en"}}
 
-iex(7)> Textgain.Personality.query("The quick brown fox jumps over the lazy dog.")
+iex(7)> Textgain.personality("The quick brown fox jumps over the lazy dog.", lang: "en")
 {:ok, %Textgain.Personality{confidence: 0.6, personality: "E"}}
 
-iex(8)> Textgain.Sentiment.query("The quick brown fox jumps over the lazy dog.")
+iex(8)> Textgain.sentiment("The quick brown fox jumps over the lazy dog.", lang: "en")
 {:ok, %Textgain.Sentiment{confidence: 0.7, polarity: 0.0}}
 
-iex(9)> Textgain.Tags.query("The quick brown fox jumps over the lazy dog.")
+iex(9)> Textgain.tag("The quick brown fox jumps over the lazy dog.", lang: "en")
 {:ok,
- %Textgain.Tags{confidence: 0.95,
+ %Textgain.Tag{confidence: 0.95,
   text: [[[%{"tag" => "DET", "word" => "The"},
      %{"tag" => "ADJ", "word" => "quick"}, %{"tag" => "ADJ", "word" => "brown"},
      %{"tag" => "NOUN", "word" => "fox"},
@@ -92,3 +84,5 @@ iex(9)> Textgain.Tags.query("The quick brown fox jumps over the lazy dog.")
      %{"tag" => "NOUN", "word" => "dog"}],
     [%{"tag" => "PUNC", "word" => "."}]]]}}
 ```
+
+The "!" variant for each function also exists, which will return just the service struct or raise an error.

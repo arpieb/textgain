@@ -1,9 +1,8 @@
 defmodule Textgain.Sentiment do
 
   @moduledoc """
-  Provides an interface into the Sentiment service provided by Textgain.
+  Provides a data structure and any related functions for the Sentiment service provided by Textgain.
   """
   defstruct [:polarity, :confidence]
-  use Textgain, service: "sentiment"
 
 end
