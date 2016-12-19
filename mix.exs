@@ -53,12 +53,9 @@ defmodule Textgain.Mixfile do
     [
       files: [
         "lib",
-        "priv",
         "mix.exs",
         "README*",
-        "readme*",
         "LICENSE*",
-        "license*"
       ],
       maintainers: ["Robert Bates"],
       licenses: ["Apache 2.0"],
