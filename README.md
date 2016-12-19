@@ -14,7 +14,7 @@ The **Textgain** Elixir package provides a simple interface into the [Textgain](
 
 ## Installation
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed as:
+If [available in Hex](https://hex.pm/packages/textgain), the package can be installed as:
 
   1. Add `textgain` to your list of dependencies in `mix.exs`:
 
