@@ -27,7 +27,8 @@ defmodule Textgain do
       """
       @spec query(text :: binary, options :: keyword) :: tuple
       def query(text, options \\ []) do
-        process_response(Textgain.raw_query(unquote(service), [q: text] ++ options))
+        raw_query(unquote(service), [q: text] ++ options)
+        |> process_response()
       end
 
       @doc """
