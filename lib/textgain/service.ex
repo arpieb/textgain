@@ -89,7 +89,7 @@ defmodule Textgain.Service do
   def raw_query(service, params) do
     params_w_key = add_key(params, key())
     #Logger.debug("Executing query to service '#{@api_endpoint <> service}' with params: #{inspect_str(params_w_key)}")
-    HTTPoison.get(@api_endpoint <> service, %{}, params: params_w_key)
+    HTTPoison.post(@api_endpoint <> service, "", %{}, params: params_w_key)
     |> service_process_response(service, params)
   end
 
