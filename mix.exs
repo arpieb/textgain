@@ -14,8 +14,8 @@ defmodule Textgain.Mixfile do
 
       # Docs.
       name: "Textgain",
-      source_url: "https://bitbucket.org/arpieb/textgain",
-      homepage_url: "https://bitbucket.org/arpieb/textgain",
+      source_url: "https://github.com/arpieb/textgain",
+      homepage_url: "https://github.com/arpieb/textgain",
       docs: [
         main: "readme",
         extras: [
