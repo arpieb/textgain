@@ -45,7 +45,7 @@ defmodule Textgain.Mixfile do
 
   defp description do
     """
-    This module provides access to the various text analytics services provided by <a href="https://www.textgain.com/" target="_blank">Textgain</a>.
+    This module provides access to the various text analytics services provided by Textgain.
     """
   end
 
@@ -61,6 +61,7 @@ defmodule Textgain.Mixfile do
       licenses: ["Apache 2.0"],
       links: %{
         "GitHub" => "https://github.com/arpieb/textgain",
+        "Textgain" => "https://www.textgain.com/",
       },
     ]
   end
