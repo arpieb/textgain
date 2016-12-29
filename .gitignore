@@ -16,8 +16,8 @@ erl_crash.dump
 # Also ignore archive artifacts (built via "mix archive.build").
 *.ez
 
-# Ignore dev config
-config/dev.exs
+# Ignore prod config
+config/prod.exs
 
 # IntelliJ project cruft
 *.iml
