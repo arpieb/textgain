@@ -1,5 +1,8 @@
 # Textgain
 
+[![Build Status](https://travis-ci.org/arpieb/textgain.svg?branch=master)](https://travis-ci.org/arpieb/textgain)
+[![Hex.pm](https://img.shields.io/hexpm/v/textgain.svg)](https://hex.pm/packages/textgain)
+
 The **Textgain** Elixir package provides a simple interface into the [Textgain](https://www.textgain.com/) web service for natural language processing (NLP) and text analytics.  The analytics services currently available are:
  
 * Age
