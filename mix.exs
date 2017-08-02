@@ -4,8 +4,8 @@ defmodule Textgain.Mixfile do
   def project do
     [
       app: :textgain,
-      version: "0.1.2",
-      elixir: "~> 1.3",
+      version: "0.1.3",
+      elixir: "~> 1.5",
       build_embedded: Mix.env == :prod,
       start_permanent: Mix.env == :prod,
       description: description(),
@@ -37,8 +37,8 @@ defmodule Textgain.Mixfile do
 
   defp deps do
     [
-      {:ex_doc, "~> 0.14.5", only: :dev},
-      {:httpoison, "~> 0.10.0"},
+      {:ex_doc, "~> 0.16.2", only: :dev},
+      {:httpoison, "~> 0.12.0"},
       {:poison, "~> 3.0"},
     ]
   end
