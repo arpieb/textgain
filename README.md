@@ -19,28 +19,28 @@ The **Textgain** Elixir package provides a simple interface into the [Textgain](
 
 If [available in Hex](https://hex.pm/packages/textgain), the package can be installed as:
 
-  1. Add `textgain` to your list of dependencies in `mix.exs`:
+1. Add `textgain` to your list of dependencies in `mix.exs`:
 
-    ```elixir
-    def deps do
-      [{:textgain, "~> 0.1.0"}]
-    end
-    ```
+```elixir
+def deps do
+  [{:textgain, "~> 0.1.0"}]
+end
+```
 
-  2. Ensure `textgain` is started before your application:
+2. Ensure `textgain` is started before your application:
 
-    ```elixir
-    def application do
-      [applications: [:textgain]]
-    end
-    ```
+```elixir
+def application do
+  [applications: [:textgain]]
+end
+```
 
-  3. Configure your API key, if you have one, in config.exs:
+3. Configure your API key, if you have one, in config.exs:
   
-    ```elixir
-    config :textgain,
-      key: "***"
-    ```
+```elixir
+config :textgain,
+  key: "***"
+```
 
 ## Usage
 
