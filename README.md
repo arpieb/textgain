@@ -42,6 +42,8 @@ config :textgain,
   key: "***"
 ```
 
+**Note:** Without an API key you are restricted to 100 API calls in a 24 hour period, and some API calls might be refused.  That being said, some of your tests will fail if you are not using a legit API key.
+
 ## Usage
 
 The package's main API module is `Textgain` which leverages the `service` macro defined in `Textgain.Service` to instantiate endpoints for each Textgain service.  All returned data is decoded into service-specific structs to facilitate leveraging Elixir's pattern matching to process responses.
